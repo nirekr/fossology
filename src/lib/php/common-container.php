@@ -50,6 +50,7 @@ else {
   if ($cacheDir && is_dir($cacheDir))
   {
     $dumper = new PhpDumper($container);
+    umask(0022);
     file_put_contents(
         $cacheFile,
         $dumper->dump(array('class' => $containerClassName))
